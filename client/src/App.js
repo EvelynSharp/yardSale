@@ -1,9 +1,12 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => (
-  <p>
-    To get started, edit <code>src/App.js</code> and save to reload.
-  </p>
+  <div>
+    <Switch>
+
+    </Switch>
+  </div>
 );
 
 export default App;
