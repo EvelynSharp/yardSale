@@ -7,17 +7,9 @@ const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/yardSale');
 
-const pool = require('./schemas/db');
-
-// pool.query('SELECT * FROM products', function(err, res) {
-//   if(err) {
-//     return console.error('error running query', err);
-//   }
-//
-//   console.log(res.rows);
-// });
-
 const app = express();
+
+const products = require('./routes/products');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -25,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
-
+app.use('/api/products', products);
 
 app.get('*', (request, response) => {
    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
