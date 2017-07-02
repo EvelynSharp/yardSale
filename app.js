@@ -9,13 +9,13 @@ const bodyParser = require('body-parser');
 
 const pool = require('./schemas/db');
 
-pool.query('SELECT * FROM products', function(err, res) {
-  if(err) {
-    return console.error('error running query', err);
-  }
-
-  console.log(res.rows);
-});
+// pool.query('SELECT * FROM products', function(err, res) {
+//   if(err) {
+//     return console.error('error running query', err);
+//   }
+//
+//   console.log(res.rows);
+// });
 
 const app = express();
 
