@@ -17,41 +17,34 @@ class NavBar extends React.Component {
   render() {
     let { id } = this.props;
     return (
-      <div>
-        <Navbar collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <NavLink to={'/'}>
-                <span className="glyphicon glyphicon-home"></span>
-              </NavLink>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
-              <NavItem eventKey={1}><NavLink to={'/browse'}>BROWSE</NavLink></NavItem>
-              <NavItem eventKey={2}><NavLink to={'/about'}>ABOUT</NavLink></NavItem>
-              {id ?
-                  <NavItem eventKey={3}><NavLink to={'/dashboard'}>ACCOUNT</NavLink></NavItem>
-                :
-                  <NavItem eventKey={3}><NavLink to={'/login'}>LOGIN</NavLink></NavItem>
-              }
-              {id ?
-                  <NavItem eventKey={4}>
-                    <a
-                      style={{ cursor: 'pointer' }}
-                      onClick={ () => {
-                          // dispatch(logout())
-                          //  history.push('/')
-                         }}
-                    >LOGOUT</a>
-                  </NavItem>
-                :
-                  <NavItem eventKey={4}><NavLink to={'/register'}>REGISTER</NavLink></NavItem>
-              }
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+      <div >
+        <Navbar.Collapse>
+          <Nav justified>
+            <NavItem eventKey={0}>
+              <NavLink to={'/'}><span className="glyphicon glyphicon-home"></span></NavLink>
+            </NavItem>
+            <NavItem eventKey={1}><NavLink to={'/browse'}>BROWSE</NavLink></NavItem>
+            <NavItem eventKey={2}><NavLink to={'/about'}>ABOUT</NavLink></NavItem>
+            {id ?
+                <NavItem eventKey={3}><NavLink to={'/dashboard'}>ACCOUNT</NavLink></NavItem>
+              :
+                <NavItem eventKey={3}><NavLink to={'/login'}>LOGIN</NavLink></NavItem>
+            }
+            {id ?
+                <NavItem eventKey={4}>
+                  <a
+                    style={{ cursor: 'pointer' }}
+                    onClick={ () => {
+                        // dispatch(logout())
+                        //  history.push('/')
+                       }}
+                  >LOGOUT</a>
+                </NavItem>
+              :
+                <NavItem eventKey={4}><NavLink to={'/register'}>REGISTER</NavLink></NavItem>
+            }
+          </Nav>
+        </Navbar.Collapse>
       </div>
     )
   }
