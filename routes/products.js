@@ -7,11 +7,10 @@ router.get('/', (req, res) => {
     if (err) {
       return console.error('err fetching client from pool', err);
     }
-    client.query( 'SELECT * FROM products', (err, result) => {
+    client.query( 'SELECT * FROM products p LEFT OUTER JOIN productsimages pi ON p.id=pi.product_id', (err, result) => {
       if(err) {
         return console.error('error running query', err);
       }
-      console.log(result.rows)
       return res.json(result.rows);
       done();
     })
