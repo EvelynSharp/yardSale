@@ -11,6 +11,9 @@ const app = express();
 
 const products = require('./routes/products');
 
+//cloudinary
+const cloudinarys = require('./routes/cloudinarys');
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api/products', products);
+
+//cloudinary routes
+app.use('/api/cloudinarys', cloudinarys);
 
 app.get('*', (request, response) => {
    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
