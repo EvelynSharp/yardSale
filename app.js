@@ -11,6 +11,8 @@ const app = express();
 
 const products = require('./routes/products');
 
+const proddetails = require('./routes/proddetails');
+
 //cloudinary
 const cloudinarys = require('./routes/cloudinarys');
 
@@ -21,6 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use('/api/products', products);
+
+app.use('/api/product', proddetails);
 
 //cloudinary routes
 app.use('/api/cloudinarys', cloudinarys);

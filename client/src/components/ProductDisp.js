@@ -16,7 +16,7 @@ const displayProds = (history, products) => {
 //TODO: no edge for thumbnal? just margin between each one
 
     return (
-      <Col xs={6} md={4}>
+      <Col xs={6} md={4} key={prod.name}>
         <Thumbnail style={{ height: '300px'}}>
           <div style={{ textAlign: 'center'}} onClick={() => history.push(`/product/${prod.id}`)}>
             <img src={prod.imageurl} style={{ height: '150px', width: '100%'}}/>

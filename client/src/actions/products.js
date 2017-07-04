@@ -22,6 +22,9 @@ export const addProd = (prodDetails) => {
 }
 
 
+
+
+
 //       .then( newEvent => dispatch({ type: 'ADD_EVENT', newEvent }))
 //   }
 // }
