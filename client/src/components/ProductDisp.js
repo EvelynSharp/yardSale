@@ -11,6 +11,7 @@ const ProductDisp = ({ history, products }) => (
 
 const displayProds = (history, products) => {
   return products.map( prod => {
+
     return (
       <Col xs={6} md={4}>
         <Thumbnail src={prod.imageUrl} alt="242x200">
