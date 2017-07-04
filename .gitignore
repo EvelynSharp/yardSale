@@ -31,3 +31,6 @@ npm-debug.log
 
 #ignore env file
 .env
+
+#ignore uploads photos
+uploads
