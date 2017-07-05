@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, FormGroup, FormControl, ControlLabel, Button, Grid, Col, Row  } from 'react-bootstrap';
+import { addMsg } from '../actions/messages';
 
 class ContactForm extends React.Component {
-  defaultData = { ctIssue: '', ctName: '', ctEmail: '', ctPhone: '', ctMsg: '' }
+  defaultData = { ctIssue: '', ctName: '', ctEmail: '', ctPhone: '', ctMsg: '', ifSent: false }
   state={ ...this.defaultData}
 
   handleChange=(e)=>{
@@ -13,7 +14,8 @@ class ContactForm extends React.Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
-
+    let { ctIssue, ctName, ctEmail, ctPhone, ctMsg } = this.state;
+    this.props.dispatch(addMsg( {ctIssue, ctName, ctEmail, ctPhone, ctMsg} ))
     // this.setState({id},
     //   () => {
     //     this.props.dispatch(addProd(this.state))

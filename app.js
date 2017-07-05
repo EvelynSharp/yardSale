@@ -13,6 +13,8 @@ const products = require('./routes/products');
 
 const proddetails = require('./routes/proddetails');
 
+const messages = require('./routes/messages');
+
 //cloudinary
 const cloudinarys = require('./routes/cloudinarys');
 
@@ -25,6 +27,8 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 app.use('/api/products', products);
 
 app.use('/api/product', proddetails);
+
+app.use('/api/messages', messages);
 
 //cloudinary routes
 app.use('/api/cloudinarys', cloudinarys);
