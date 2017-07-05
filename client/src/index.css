@@ -7,3 +7,7 @@ body {
 .pageCon {
   margin: 5% 3%;
 }
+
+.textCenter {
+  text-align: center;
+}

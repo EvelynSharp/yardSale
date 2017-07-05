@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col} from 'react-bootstrap';
+import { Grid, Row, Col, Glyphicon} from 'react-bootstrap';
 import ProdImgDisp from './ProdImgDisp';
 import ProdInfo from './ProdInfo';
 
@@ -22,6 +22,13 @@ class ProdPage extends React.Component {
             <Col xs={12} md={12} style={{ border: '1px solid red'}}>
               <div> test </div>
             </Col>
+          </Row>
+          <Row>
+            <div className="textCenter">
+              <Glyphicon glyph="arrow-left" />
+              <span> Back To Browse</span>
+            </div>
+
           </Row>
         </Grid>
 

@@ -58,9 +58,9 @@ class ProdImgDisp extends React.Component {
             </Col>
             <Col xs={5} md={5} style={{ border: '1px solid blue'}}>
               <img src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '350px'}} onClick={this.openLarImg}/>
-              <Modal show={showModal} onHide={this.closeLarImg}>
+              <Modal bsSize="large" show={showModal} onHide={this.closeLarImg} style={{ textAlign: 'center'}}>
                 <Glyphicon glyph="menu-left" onClick={()=>{this.toggleLarImg('-')}} style={{ fontSize: '30px'}}/>
-                <img src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '500px'}}/>
+                <img src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '700px', margin: '0 2em'}}/>
                 <Glyphicon glyph="menu-right" onClick={()=>{this.toggleLarImg('+')}} style={{ fontSize: '30px'}}/>
               </Modal>
             </Col>

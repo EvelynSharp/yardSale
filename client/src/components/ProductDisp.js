@@ -4,7 +4,14 @@ import { Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 const ProductDisp = ({ history, products }) => (
   <div>
     <Grid>
-      {displayProds(history, products)}
+      <Col xs={3} md={2}>
+        <div>text</div>
+        <div>text</div>
+        <div>text</div>
+      </Col>
+      <Col xs={9} md={10}>
+        {displayProds(history, products)}
+      </Col>
     </Grid>
   </div>
 )
@@ -16,7 +23,7 @@ const displayProds = (history, products) => {
 //TODO: no edge for thumbnal? just margin between each one
 
     return (
-      <Col xs={6} md={4} key={prod.name}>
+      <Col xs={9} md={4} key={prod.name}>
         <Thumbnail style={{ height: '300px'}}>
           <div style={{ textAlign: 'center'}} onClick={() => history.push(`/product/${prod.id}`)}>
             <img src={prod.imageurl} style={{ height: '150px', width: '100%'}}/>

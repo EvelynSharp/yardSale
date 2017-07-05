@@ -23,7 +23,7 @@ class NavBar extends React.Component {
             <NavItem eventKey={0}>
               <NavLink to={'/'}><span className="glyphicon glyphicon-home"></span></NavLink>
             </NavItem>
-            <NavItem eventKey={1}><NavLink to={'/browse'}>BROWSE</NavLink></NavItem>
+            <NavItem eventKey={1}><NavLink to={'/shopall'}>SHOP ALL</NavLink></NavItem>
             <NavItem eventKey={2}><NavLink to={'/about'}>ABOUT</NavLink></NavItem>
             {id ?
                 <NavItem eventKey={3}><NavLink to={'/dashboard'}>ACCOUNT</NavLink></NavItem>

@@ -6,6 +6,7 @@ import NoMatch from './components/NoMatch';
 import Home from './components/Home';
 import ProdForm from './components/ProdForm';
 import ProdPage from './components/ProdPage';
+import Shop from './components/Shop';
 
 const App = () => (
   <div>
@@ -13,6 +14,7 @@ const App = () => (
     <NavBar />
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/shopall" component={Shop} />
       <Route exact path="/product/:id" component={ProdPage} />
       <Route exact path="/newproduct" component={ProdForm} />
       <Route component={NoMatch} />
