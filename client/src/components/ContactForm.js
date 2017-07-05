@@ -42,6 +42,7 @@ class ContactForm extends React.Component {
                       value={ctIssue}
                       onChange={this.handleChange}
                       placeholder='Select Issue'
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -54,6 +55,7 @@ class ContactForm extends React.Component {
                       value={ctName}
                       onChange={this.handleChange}
                       placeholder='Enter Your Name'
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -68,12 +70,13 @@ class ContactForm extends React.Component {
                       value={ctEmail}
                       onChange={this.handleChange}
                       placeholder='Enter Your Email Address'
+                      required
                     />
                   </FormGroup>
                 </Col>
                 <Col xs={6} md={6}>
                   <FormGroup>
-                    <ControlLabel>Phone Number:</ControlLabel>
+                    <ControlLabel>Phone Number: (Optional)</ControlLabel>
                     <FormControl
                       id='ctPhone'
                       type='tel'
@@ -92,6 +95,7 @@ class ContactForm extends React.Component {
                       componentClass="textarea"
                       placeholder="Enter Your Message"
                       onChange={this.handleChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
