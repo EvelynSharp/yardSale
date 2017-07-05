@@ -89,6 +89,7 @@ class ContactForm extends React.Component {
                   <FormGroup controlId="ctMsg">
                     <ControlLabel>Message:</ControlLabel>
                     <FormControl
+                      value={ctMsg}
                       componentClass="textarea"
                       placeholder="Enter Your Message"
                       onChange={this.handleChange}
