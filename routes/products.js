@@ -33,13 +33,15 @@ router.post('/', (req, res) => {
     })
 
     imageUrls.forEach( (url, index) => {
-      let prim = index === 0 ? 1 : 0;
-      client.query('INSERT INTO productsimages(imgid, product_id, imageUrl, prim) VALUES($1, $2, $3, $4);', [imgIds[index], id, url, prim], (err, result) => {
-        if(err) {
-          return console.error('error running query', err);
-        }
-        done();
-      })
+      if (url !== '') {
+        let prim = index === 0 ? 1 : 0;
+        client.query('INSERT INTO productsimages(imgid, product_id, imageUrl, prim) VALUES($1, $2, $3, $4);', [imgIds[index], id, url, prim], (err, result) => {
+          if(err) {
+            return console.error('error running query', err);
+          }
+          done();
+        })
+      };
     })
 
     client.query( 'SELECT * FROM products p LEFT OUTER JOIN productsimages pi ON p.id=pi.product_id WHERE prim=1', (err, result) => {
