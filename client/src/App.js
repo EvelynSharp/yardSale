@@ -8,6 +8,7 @@ import ProdForm from './components/ProdForm';
 import ProdPage from './components/ProdPage';
 import Shop from './components/Shop';
 import ContactForm from './components/ContactForm';
+import ContactSent from './components/ContactSent';
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
       <Route exact path="/product/:id" component={ProdPage} />
       <Route exact path="/newproduct" component={ProdForm} />
       <Route exact path="/contact" component={ContactForm} />
+      <Route exact path="/msgsent" component={ContactSent} />
       <Route component={NoMatch} />
     </Switch>
   </div>
