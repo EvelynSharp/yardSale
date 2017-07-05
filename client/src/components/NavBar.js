@@ -17,7 +17,7 @@ class NavBar extends React.Component {
   render() {
     let { id } = this.props;
     return (
-      <div >
+      <div style={{ marginBottom: '5%'}}>
         <Navbar.Collapse>
           <Nav justified>
             <NavItem eventKey={0}>
