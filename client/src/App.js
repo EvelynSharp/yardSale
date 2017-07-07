@@ -9,6 +9,7 @@ import ProdPage from './components/ProdPage';
 import Shop from './components/Shop';
 import ContactForm from './components/ContactForm';
 import ContactSent from './components/ContactSent';
+import LoginPage from './components/LoginPage';
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
       <Route exact path="/newproduct" component={ProdForm} />
       <Route exact path="/contact" component={ContactForm} />
       <Route exact path="/msgsent" component={ContactSent} />
+      <Route exact path="/login" component={LoginPage} />
       <Route component={NoMatch} />
     </Switch>
   </div>
