@@ -8,11 +8,12 @@ class LoginForm extends React.Component {
 
   handleChange = (e) => {
     let { target: { id, value }} = e;
-    // this.setState({ [id]: value }, () => {
-    //   if (id === 'email' || id === 'password') {
-    //     this.props.dispatch({ type: 'RESET_USER_ERROR'});
-    //   }
-    // });
+    this.setState({ [id]: value },
+      // () => {
+      // if (id === 'email' || id === 'password') {
+      //   this.props.dispatch({ type: 'RESET_USER_ERROR'});
+      // }}
+    );
   }
 
 
