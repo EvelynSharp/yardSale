@@ -40,7 +40,8 @@ class LoginForm extends React.Component {
     return(
       <Form onSubmit={this.handleSubmit}>
         <Row >
-          <Col xs={6} md={6}>
+          <Col xs={1} md={1}/>
+          <Col xs={10} md={10}>
             <FormGroup>
               <ControlLabel>Email:</ControlLabel>
               <FormControl
@@ -52,9 +53,11 @@ class LoginForm extends React.Component {
               />
             </FormGroup>
           </Col>
+          <Col xs={1} md={1}/>
         </Row>
         <Row >
-          <Col xs={6} md={6}>
+          <Col xs={1} md={1}/>
+          <Col xs={10} md={10}>
             <FormGroup>
               <ControlLabel>Password:</ControlLabel>
               <FormControl
@@ -66,6 +69,7 @@ class LoginForm extends React.Component {
               />
             </FormGroup>
           </Col>
+          <Col xs={1} md={1}/>
         </Row>
 
       </Form>
