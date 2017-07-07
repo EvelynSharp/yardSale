@@ -71,7 +71,9 @@ class LoginForm extends React.Component {
           </Col>
           <Col xs={1} md={1}/>
         </Row>
-
+        <Row style={{ textAlign: 'center'}}>
+          <Button type='submit'>Login</Button>
+        </Row>
       </Form>
 
     )
