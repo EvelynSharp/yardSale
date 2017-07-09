@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const pool = require('./schemas/db');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
+const authHelpers = require('./_helpers');
 
 const app = express();
 
@@ -61,7 +62,7 @@ passport.use('local', new LocalStrategy({
           //console.log('User obj', row);
           //console.log('Password', password)
           user = row;
-          if(password == user.password){
+          if(authHelpers.comparePass(password, user.password)){
             //console.log('match!')
             done(null, user);
           } else {

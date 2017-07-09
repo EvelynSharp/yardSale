@@ -11,6 +11,7 @@ import ContactForm from './components/ContactForm';
 import ContactSent from './components/ContactSent';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
+import About from './components/About';
 
 const App = () => (
   <div>
@@ -25,6 +26,7 @@ const App = () => (
       <Route exact path="/msgsent" component={ContactSent} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/register" component={RegisterPage} />
+      <Route exact path="/about" component={About} />
       <Route component={NoMatch} />
     </Switch>
   </div>
