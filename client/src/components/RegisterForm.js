@@ -9,14 +9,7 @@ class RegisterForm extends React.Component {
 
   handleChange = (e) => {
     let { target: { id, value }} = e;
-  //   if (id === 'passwordValidation') {
-  //     this.setState({ passwordCheck: true });
-  //   }
-  //   if (id === 'password') {
-  //     this.setState({ pwCharCheck: true });
-  //   }
     this.setState({ [id]: value });
-  // }
   }
 
 
@@ -25,18 +18,6 @@ class RegisterForm extends React.Component {
     let { dispatch } = this.props;
     let { email, password } = this.state;
     dispatch( authenticateNew(email, password));
-    // let { title, history, dispatch } = this.props;
-    // let { nickName, birthDate, phoneNumber, address, gender, email, password, avatarUrl, userBio, passwordValidation} = this.state;
-    // if (avatarUrl === '' || password.length < 8 || password !== passwordValidation ) {
-    //   if (avatarUrl === '')
-    //     this.setState({ avatarCheck: false });
-    //   if (password.length < 8)
-    //     this.setState({ pwCharCheck: false });
-    //   if (password !== passwordValidation)
-    //     this.setState({ passwordCheck: false });
-    // } else {
-    //   dispatch(authenticateNew(nickName, birthDate, phoneNumber, address, gender, email, password, avatarUrl, userBio, title, history));
-    // }
   }
 
 

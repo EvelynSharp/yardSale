@@ -11,10 +11,12 @@ router.get("/", function(req,res,next){
   });
 
 router.post('/signin',
-   passport.authenticate('local', {
-      //  successRedirect: '/users',
-      //  failureRedirect: '/'
-   })
+  passport.authenticate('local',
+     {
+      successRedirect: '/users',
+      failureRedirect: '/signin'
+     }
+  )
 );
 
 router.post('/signup', (req,res,next) => {

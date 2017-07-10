@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Form, FormGroup, FormControl, ControlLabel, Button, Grid, Col, Row  } from 'react-bootstrap';
+import { authenticateLogin } from '../actions/user';
 
 class LoginForm extends React.Component {
   defaults = { email: '', password: '' }
@@ -9,30 +10,16 @@ class LoginForm extends React.Component {
   handleChange = (e) => {
     let { target: { id, value }} = e;
     this.setState({ [id]: value },
-      // () => {
-      // if (id === 'email' || id === 'password') {
-      //   this.props.dispatch({ type: 'RESET_USER_ERROR'});
-      // }}
     );
   }
 
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // let { title, history, dispatch } = this.props;
-    // let { email, password, avatarUrl, passwordValidation } = this.state;
-    // if ( title === 'Register') {
-    //   if (avatarUrl === '' || password !== passwordValidation) {
-    //     if (avatarUrl === '')
-    //       this.setState({ avatarCheck: false });
-    //     if (password !== passwordValidation)
-    //       this.setState({ passwordCheck: false });
-    //   } else {
-    //     dispatch(authenticateLogin(email, password, history));
-    //   }
-    // } else {
-    //     dispatch(authenticateLogin(email, password, history));
-    // }
+    let { title, history, dispatch } = this.props;
+    let { email, password } = this.state;
+    dispatch(authenticateLogin(email, password, history));
+
   }
 
 
