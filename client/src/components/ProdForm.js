@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Form, FormGroup, FormControl, ControlLabel, Button, Grid, Col  } from 'react-bootstrap';
 import { addProd } from '../actions/products';
 import ImageDrop from './ImageDrop';
-
+import { categories } from '../categories';
 
 class ProdForm extends React.Component {
   // make componentWillMount - switch route if not admin

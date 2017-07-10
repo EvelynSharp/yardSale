@@ -26,7 +26,7 @@ class ProdPage extends React.Component {
           <Row>
             <div className="textCenter">
               <Glyphicon glyph="arrow-left" />
-              <span> Back To Browse</span>
+              <span onClick={ () => this.props.history.push('/shopall')}> Back To Browse</span>
             </div>
 
           </Row>

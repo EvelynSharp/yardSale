@@ -83,18 +83,18 @@ passport.use('local', new LocalStrategy({
     });
 }));
 
-  passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user, done) {
        done(null, user.id);
     });
 
 passport.deserializeUser(function(id, done) {
-  console.log('called deserializeUser');
+  //console.log('called deserializeUser');
   pool.connect( function (err, client) {
     let user = {};
-    console.log('called deserializeUser - pg');
+    //console.log('called deserializeUser - pg');
       let query = client.query("SELECT * FROM users WHERE id = $1", [id]);
       query.on('row', function (row) {
-        console.log('User row', row);
+      //  console.log('User row', row);
         user = row;
         done(null, user);
       });
