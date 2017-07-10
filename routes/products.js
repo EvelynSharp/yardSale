@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     if (err) {
       return console.error('err fetching client from pool', err);
     }
-    client.query( 'SELECT p.id, p.name, p.price, pi.imgId, pi.imageurl \
+    client.query( 'SELECT p.id, p.name, p.price, p.category, pi.imgId, pi.imageurl \
           FROM products p LEFT OUTER JOIN productsimages pi ON p.id=pi.product_id WHERE prim=1', (err, result) => {
       if(err) {
         return console.error('error running query', err);

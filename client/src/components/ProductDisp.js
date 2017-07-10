@@ -8,17 +8,27 @@ class ProductDisp extends React.Component {
   displayFilter = () => {
     return categories.map( c => {
       return (
-        <NavItem eventkey={c.key} onClick={() => this.setFilter(c.value)}>{c.text}</NavItem>
+        <NavItem
+          eventkey={c.key}
+          active={ c.value === this.state.filter ? true : false }
+          onClick={() => this.setFilter(c.value)}
+        >
+          {c.text}
+        </NavItem>
       )
     })
   }
 
   setFilter = (category) => {
-    this.setState({ filter: category });
+    if( this.state.filter === category) {
+      this.setState({ filter: 'All'})
+    } else {
+      this.setState({ filter: category });
+    }
   }
 
-  displayProds = (history, products) => {
-    return products.map( prod => {
+  displayProds = (history, filteredProd) => {
+    return filteredProd.map( prod => {
 
   //TODO: set const height for thumbnail, make image go set % of the height and all the width
   //TODO: no edge for thumbnal? just margin between each one
@@ -39,6 +49,8 @@ class ProductDisp extends React.Component {
 
   render() {
     let { history, products } = this.props;
+    let { filter } = this.state;
+    let filteredProd = filter === 'All' ? products : products.filter( p => p.category === filter);
     return(
       <div>
         <Grid>
@@ -48,7 +60,7 @@ class ProductDisp extends React.Component {
             </Nav>
           </Col>
           <Col xs={9} md={10}>
-            {this.displayProds(history, products)}
+            {this.displayProds(history, filteredProd)}
           </Col>
         </Grid>
       </div>

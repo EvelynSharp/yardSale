@@ -14,6 +14,7 @@ router.get('/:id', (req, res) => {
         ,p.id \
         ,p.name \
         ,p.price \
+        ,p.category \
       FROM productsimages pi \
       JOIN products p \
         ON p.id=pi.product_id \
