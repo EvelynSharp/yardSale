@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, FormGroup, FormControl, ControlLabel, Button, Grid, Col, Row  } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Button, Col, Row  } from 'react-bootstrap';
 import { authenticateLogin } from '../actions/user';
 
 class LoginForm extends React.Component {
@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let { title, history, dispatch } = this.props;
+    let { history, dispatch } = this.props;
     let { email, password } = this.state;
     dispatch(authenticateLogin(email, password, history));
 

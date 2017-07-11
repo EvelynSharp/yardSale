@@ -25,14 +25,11 @@ class ImageDrop extends React.Component {
   };
 
   render() {
-    let dropzoneRef;
-
     return (
       <section>
         <div>
           <Dropzone
             accept="image/jpg, image/jpeg, image/png"
-            ref={node => dropzoneRef = node }
             onDrop={this.prodImageDrop}
           >
             <p>Upload an product picture: *.jpg, *.jpeg and *.png</p>

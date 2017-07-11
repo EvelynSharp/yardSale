@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem,  } from 'react-bootstrap';
 
 //
 // <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -32,13 +32,13 @@ class NavBar extends React.Component {
             }
             {id ?
                 <NavItem eventKey={4}>
-                  <a
+                  <div
                     style={{ cursor: 'pointer' }}
                     onClick={ () => {
                         // dispatch(logout())
                         //  history.push('/')
                        }}
-                  >LOGOUT</a>
+                  >LOGOUT</div>
                 </NavItem>
               :
                 <NavItem eventKey={4}><NavLink to={'/register'}>REGISTER</NavLink></NavItem>

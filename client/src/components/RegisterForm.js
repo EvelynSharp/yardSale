@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Form, FormGroup, FormControl, ControlLabel, Button, Grid, Col, Row  } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Button, Col, Row  } from 'react-bootstrap';
 import { authenticateNew } from '../actions/user';
 
 class RegisterForm extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Thumbnail, Nav, NavItem } from 'react-bootstrap';
+import { Grid, Col, Thumbnail, Nav, NavItem } from 'react-bootstrap';
 import { categories } from '../categories';
 
 class ProductDisp extends React.Component {
@@ -35,9 +35,9 @@ class ProductDisp extends React.Component {
 
       return (
         <Col xs={9} md={4} key={prod.name}>
-          <Thumbnail style={{ height: '300px'}}>
+          <Thumbnail style={{ height: '400px', border: 'none', boxShadow: 'none'}}>
             <div style={{ textAlign: 'center'}} onClick={() => history.push(`/product/${prod.id}`)}>
-              <img src={prod.imageurl} style={{ height: '150px', width: '100%'}}/>
+              <img alt={`detail of ${prod.name}`} src={prod.imageurl} style={{ height: '250px', width: '100%'}}/>
             </div>
             <h3>{prod.name}</h3>
             <p>{prod.price}</p>

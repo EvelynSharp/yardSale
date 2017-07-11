@@ -42,7 +42,7 @@ class ProdForm extends React.Component {
     const arrToMap = [0,1,2,3,4];
     return arrToMap.map( num => {
       return (
-        <Col xs={6} md={4}>
+        <Col xs={6} md={4} key={num}>
           <ImageDrop imgNum={num} setImageUrlState={this.setImageUrlState}/>
         </Col>
       )

@@ -16,7 +16,7 @@ class ProdImgDisp extends React.Component {
       return this.props.imageUrls.map( (url, index) => {
         return (
           <Row style={{ padding: '5px'}} key={index}>
-            <img alt={`img number: ${index}`} src={url} style={{ height: '60px'}} onClick={() => this.toggleImg(index)}/>
+            <img alt={`product detail number ${index}`} src={url} style={{ height: '60px'}} onClick={() => this.toggleImg(index)}/>
           </Row>
         )
       })
@@ -57,10 +57,10 @@ class ProdImgDisp extends React.Component {
               { this.dispSideImg()}
             </Col>
             <Col xs={5} md={5} style={{ border: '1px solid blue'}}>
-              <img alt={`image number ${imgNum}`} src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '350px'}} onClick={this.openLarImg}/>
+              <img alt={`detail number ${imgNum}`} src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '350px'}} onClick={this.openLarImg}/>
               <Modal bsSize="large" show={showModal} onHide={this.closeLarImg} style={{ textAlign: 'center'}}>
                 <Glyphicon glyph="menu-left" onClick={()=>{this.toggleLarImg('-')}} style={{ fontSize: '30px'}}/>
-                <img alt={`image number ${imgNum} (large)`} src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '700px', margin: '0 2em'}}/>
+                <img alt={`detail number ${imgNum} (large)`} src={imageUrls ? imageUrls[imgNum] : null} style={{ height: '700px', margin: '0 2em'}}/>
                 <Glyphicon glyph="menu-right" onClick={()=>{this.toggleLarImg('+')}} style={{ fontSize: '30px'}}/>
               </Modal>
             </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Col, Row  } from 'react-bootstrap';
+import { Grid, Col  } from 'react-bootstrap';
 
 const ContactSent = () => (
   <div className='textCenter'>
