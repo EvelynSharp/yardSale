@@ -9,7 +9,7 @@ class ProductDisp extends React.Component {
     return categories.map( c => {
       return (
         <NavItem
-          eventkey={c.key}
+          key={c.key}
           active={ c.value === this.state.filter ? true : false }
           onClick={() => this.setFilter(c.value)}
         >

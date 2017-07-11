@@ -1,5 +1,6 @@
 
 export const categories = [
+
   {
     key: 'Clothing',
     text: 'Clothing',

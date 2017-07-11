@@ -20,12 +20,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  let { id, name, price, imageUrls, imgIds } = req.body;
+  let { id, name, price, category, imageUrls, imgIds } = req.body;
   pool.connect( (err, client, done) => {
     if (err) {
       return console.error('err fetching client from pool', err);
     }
-    client.query('INSERT INTO products VALUES($1, $2, $3);', [id, name, price], (err, result) => {
+    client.query('INSERT INTO products VALUES($1, $2, $3, $4);', [id, name, price, category], (err, result) => {
       if(err) {
         return console.error('error running query', err);
       }

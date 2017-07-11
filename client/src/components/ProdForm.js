@@ -7,7 +7,7 @@ import { categories } from '../categories';
 
 class ProdForm extends React.Component {
   // make componentWillMount - switch route if not admin
-  defaultData = { id: '', name: '', price: '', imageUrls: ['', '', '', '', ''], imgIds: ['', '', '', '', '']}
+  defaultData = { id: '', name: '', price: '', category: '', imageUrls: ['', '', '', '', ''], imgIds: ['', '', '', '', '']}
   state = { ...this.defaultData }
 
 
@@ -49,8 +49,16 @@ class ProdForm extends React.Component {
     })
   }
 
+  cateOpt = () => {
+    return categories.map( c => {
+      return (
+        <option key={c.key} value={c.value}> {c.value} </option>
+      )
+    })
+  }
+
   render() {
-    let { name, price } = this.state;
+    let { name, price, category } = this.state;
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -71,6 +79,17 @@ class ProdForm extends React.Component {
               value={price}
               onChange={this.handleChange}
             />
+          </FormGroup>
+          <FormGroup>
+            <ControlLabel>Product Category</ControlLabel>
+            <FormControl
+              id='category'
+              componentClass='select'
+              value={category}
+              onChange={this.handleChange}
+            >
+              { this.cateOpt() }
+            </FormControl>
           </FormGroup>
           <Grid>
             { this.displayImgDrop()}
