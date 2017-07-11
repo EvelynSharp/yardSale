@@ -19,8 +19,8 @@ class ProdForm extends React.Component {
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    const uuidv1 = require('uuid/v1');
-    let id = uuidv1();
+    const uuidv4 = require('uuid/v4');
+    let id = uuidv4();
     this.setState({id},
       () => {
         this.props.dispatch(addProd(this.state))
@@ -88,6 +88,7 @@ class ProdForm extends React.Component {
               value={category}
               onChange={this.handleChange}
             >
+              <option key='blank' value=''> </option>
               { this.cateOpt() }
             </FormControl>
           </FormGroup>
