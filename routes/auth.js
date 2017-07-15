@@ -10,29 +10,34 @@ router.get("/", function(req,res,next){
     // res.sendFile(path.join(__dirname, '../views/index.html'));
   });
 
-router.post('/signin',
-  passport.authenticate('local',
-     {
-      successRedirect: '/users',
-      failureRedirect: '/signin'
-     }
-  )
-);
+router.post('/signin', (req, res, next) => {
+  console.log(req.body);
+  passport.authenticate('local', { session: true })(req,res,next);
+  console.log("test", req.user);
+  return res.json( req.user );
+});
 
 router.post('/signup', (req,res,next) => {
-  let { email, password } = req.body;
+  let { username, password } = req.body;
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(password, salt);
-  pool.connect((err, client) => {
-    let query = client.query('INSERT INTO users (username, password) VALUES ($1, $2)', [email, hash]);
+  pool.connect((err, client, done) => {
+    let query = client.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hash]);
     query.on('error', function(err){
       console.log(err);
-    })
-    query.on('end', function(){
-      res.sendStatus(200);
-      client.end();
-    })
+    });
+    // query.on('end', function(){
+    //   res.sendStatus(200);
+    //   client.end();
+    // })
 
+    client.query( 'SELECT username FROM users WHERE username=$1', [ username ], (err, result) => {
+      done(err);
+      if(err) {
+        return console.error('error running query', err);
+      }
+      return res.json(result.rows[0]);
+    })
   })
 });
 

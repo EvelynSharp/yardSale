@@ -15,9 +15,9 @@ class RegisterForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let { dispatch } = this.props;
+    let { dispatch, history } = this.props;
     let { email, password } = this.state;
-    dispatch( authenticateNew(email, password));
+    dispatch( authenticateNew(email, password, history));
   }
 
 

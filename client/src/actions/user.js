@@ -1,4 +1,4 @@
-export const authenticateNew = (email, password) => {
+export const authenticateNew = (username, password, history) => {
   return (dispatch) => {
     fetch(`/api/auth/signup`, {
       headers: {
@@ -7,13 +7,13 @@ export const authenticateNew = (email, password) => {
       },
       credentials: 'include',
       method: 'POST',
-      body: JSON.stringify({email, password })
+      body: JSON.stringify({username, password })
    }).then( res => res.json() )
      .then( user => {
-        // if(user.username) {
-        //   dispatch(currentUser(user));
-        //   history.push('/dashboard');
-        // } else {
+        if(user.username) {
+          dispatch(currentUser(user));
+          history.push('/shopall');
+        } //else {
         //     dispatch({ type: 'USER_ERROR', userError: 'dupedUser' });
         // }
       }
@@ -24,7 +24,7 @@ export const authenticateNew = (email, password) => {
     return { type: 'USER', user }
   }
 
-  export const authenticateLogin = (email, password, history) => {
+  export const authenticateLogin = (username, password, history) => {
   return (dispatch) => {
     fetch(`/api/auth/signin`, {
       headers: {
@@ -33,10 +33,11 @@ export const authenticateNew = (email, password) => {
       },
       credentials: 'include',
       method: 'POST',
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ username, password })
    }).then( res => res.json() )
      .then( user => {
-        if(user.username) {
+       console.log(user);
+        if(user) {
           dispatch(currentUser(user));
           history.push('/shopall');
         } // else {

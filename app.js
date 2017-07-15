@@ -49,21 +49,25 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use('local', new LocalStrategy({
-         passReqToCallback : true,
-         usernameField: 'username'
+         //passReqToCallback : true,
+         usernameField: 'username',
+         passwordField: 'password'
      },
-  function(req, username, password, done){
-    //console.log('called local');
+  function( username, password, done){
+    console.log('called local');
+    //console.log(req, username, password);
       pool.connect( function (err, client) {
         //console.log('called local - pg');
         let user = {};
         let query = client.query("SELECT * FROM users WHERE username = $1", [username]);
+        console.log("test");
         query.on('row', function (row) {
           //console.log('User obj', row);
           //console.log('Password', password)
           user = row;
+          console.log("test", user);
           if(authHelpers.comparePass(password, user.password)){
-            //console.log('match!')
+            console.log('match!')
             done(null, user);
           } else {
             done(null, false, { message: 'Incorrect username and password.' });
@@ -84,15 +88,15 @@ passport.use('local', new LocalStrategy({
 }));
 
 passport.serializeUser(function(user, done) {
-       done(null, user.id);
+       done(null, user.username);
     });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(username, done) {
   //console.log('called deserializeUser');
   pool.connect( function (err, client) {
     let user = {};
     //console.log('called deserializeUser - pg');
-      let query = client.query("SELECT * FROM users WHERE id = $1", [id]);
+      let query = client.query("SELECT * FROM users WHERE username = $1", [username]);
       query.on('row', function (row) {
       //  console.log('User row', row);
         user = row;
