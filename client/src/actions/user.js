@@ -36,7 +36,6 @@ export const authenticateNew = (username, password, history) => {
       body: JSON.stringify({ username, password })
    }).then( res => res.json() )
      .then( user => {
-       console.log(user);
         if(user) {
           dispatch(currentUser(user));
           history.push('/shopall');

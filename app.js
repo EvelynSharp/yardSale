@@ -54,20 +54,16 @@ passport.use('local', new LocalStrategy({
          passwordField: 'password'
      },
   function( username, password, done){
-    console.log('called local');
     //console.log(req, username, password);
       pool.connect( function (err, client) {
         //console.log('called local - pg');
         let user = {};
         let query = client.query("SELECT * FROM users WHERE username = $1", [username]);
-        console.log("test");
         query.on('row', function (row) {
           //console.log('User obj', row);
           //console.log('Password', password)
           user = row;
-          console.log("test", user);
           if(authHelpers.comparePass(password, user.password)){
-            console.log('match!')
             done(null, user);
           } else {
             done(null, false, { message: 'Incorrect username and password.' });

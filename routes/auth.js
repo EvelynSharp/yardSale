@@ -11,10 +11,10 @@ router.get("/", function(req,res,next){
   });
 
 router.post('/signin', (req, res, next) => {
-  console.log(req.body);
-  passport.authenticate('local', { session: true })(req,res,next);
-  console.log("test", req.user);
-  return res.json( req.user );
+  passport.authenticate('local', (err, user, info) => { //}{ session: true })
+    if (err) {return next(err); }
+    return res.json(user);
+  })(req,res,next);
 });
 
 router.post('/signup', (req,res,next) => {
